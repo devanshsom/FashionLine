@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FashionLine Clothing</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnH1zW8Pv4jRkOWkV9O5W3G1kYjFq4jC6DQo6nGqA4NxXsmxVvvk9M5gBnnA6g5tM3b9bLRw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #ffffff;
+            text-align: center;
+            padding: 60px 20px;
+            background-image: url('https://images.unsplash.com/photo-1521335629791-ce4aec67dd42?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #667eea;;
+            z-index: 1;
+        }
+
+        header h1, header p {
+            position: relative;
+            z-index: 2;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+            position: relative;
+        }
+
+        nav ul li a {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #333333;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #667eea;
+            transform: scale(1.1);
+        }
+
+        /* Sections */
+        section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Profile Dropdown */
+.profile-dropdown {
+    position: relative;
+}
+
+.profile-dropdown button {
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
+    color: #333333;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    min-width: 160px;
+    z-index: 1;
+}
+
+.profile-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px;
+    font-size: 1rem;
+    color: #333333;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+        /* About Us */
+        /* About Us */
+        #about-us {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+            background-image: url('https://images.pexels.com/photos/1020370/pexels-photo-1020370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 60px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+#about-us::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 1;
+}
+#about-us div {
+    flex: 1;
+    position: relative;
+    z-index: 2;
+    text-align: center; 
+}
+
+#about-us h2 {
+    font-size: 2.3rem; /* Increased size */
+    margin-bottom: 20px;
+    color: #fff;
+    text-align: center; /* Centered the heading */
+}
+
+#about-us p {
+    font-size: 1.2rem;
+    color: #f9f9f9;
+    text-align: center; 
+}
+
+        /* Products */
+        #products {
+            background-color: #f9f9f9;
+        }
+
+        #products h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #667eea;
+            text-align: center;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .product-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-card div {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .product-card h3 {
+            margin-bottom: 10px;
+            color: #333333;
+        }
+
+        .product-card p {
+            font-size: 0.9rem;
+            color: #666666;
+        }
+
+        /* Contact */
+        #contact h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #667eea;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .contact-info p {
+            font-size: 1rem;
+            color: #555555;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333333;
+            color: #ffffff;
+            padding: 40px 20px;
+        }
+
+        footer .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        footer .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        footer .social-icons a {
+            color: #ffffff;
+            font-size: 1.2rem;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        footer .social-icons a:hover {
+            color: #667eea;
+            transform: scale(1.2);
+        }
+
+        /* Scroll-to-Top Button */
+        #scrollTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+            background-color: #667eea;
+            color: #ffffff;
+            border: none;
+            padding: 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        #scrollTopBtn:hover {
+            background-color: #764ba2;
+            transform: scale(1.1);
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            #about-us {
+                flex-direction: column;
+            }
+
+            .contact-info {
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Welcome to FashionLine Clothing</h1>
+        <p>Your One-Stop Destination for Trendy Outfits!</p>
+    </header>
+    
+
+    <!-- Navigation -->
+    <nav>
+        
+        <ul>
+            <li><a href="#about-us">About Us</a></li>
+            <li><a href="#products">Our Products</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="signin.html">Sign In</a></li>
+            <li><a href="#" id="signout" onclick="signOut()">Sign Out</a></li>
+            <li><a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a></li>
+        </ul>
+    </nav>
+
+    <!-- About Us Section -->
+    <section id="about-us">
+        <div>
+            <h2>About Us</h2>
+            <p>FashionLine Clothing is dedicated to bringing you the latest trends in fashion. Our mission is to provide quality clothing at affordable prices, ensuring that you look good without breaking the bank.</p>
+            <p>Join us as we explore the ever-evolving world of fashion!</p>
+        </div>
+    </section>
+    
+    <!-- Products Section -->
+    <section id="products">
+        <h2>Our Products</h2>
+        <div class="product-grid">
+            <div class="product-card" id="summer-dress">
+                <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=1350&q=80" alt="Product 1">
+                <div>
+                    <h3>Summer Dress</h3>
+                    <p>Perfect for sunny days, our summer dress collection features lightweight fabrics and stylish designs.</p>
+                </div>
+            </div>
+            <div class="product-card" id="casual-tshirt">
+                <img src="https://images.pexels.com/photos/159395/pokemon-pokemon-go-phone-game-159395.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Product 2">
+                <div>
+                    <h3>Casual T-Shirts</h3>
+                    <p>Our casual t-shirts are designed for comfort and style, available in a variety of colors and prints.</p>
+                </div>
+            </div>
+            <div class="product-card" id="denim-jackets">
+                <img src="https://images.pexels.com/photos/5662643/pexels-photo-5662643.jpeg" alt="Product 3">
+                <div>
+                    <h3>Denim Jackets</h3>
+                    <p>Stay warm and stylish with our denim jackets, a must-have for any wardrobe.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-info">
+            <p>Email: contact@fashionline.com</p>
+            <p>Phone: +123 456 7890</p>
+            <p>Follow us on social media for the latest updates!</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 FashionLine Clothing. All Rights Reserved.</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll-to-Top Button -->
+    <button id="scrollTopBtn" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i></button>
+
+    <script>
+        // Scroll-to-Top Button Visibility
+        window.onscroll = function() {
+            var scrollTopBtn = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                scrollTopBtn.style.display = "block";
+            } else {
+                scrollTopBtn.style.display = "none";
+            }
+        };
+
+        // Scroll-to-Top Function
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Function to show alert and redirect based on user's choice
+        function promptSignInOrSignUp(product) {
+            const userChoice = confirm(`To access the ${product} details, please sign up or sign in.`);
+            if (userChoice) {
+        // If the user chooses "OK," redirect to the sign-in page
+                window.location.href = "signin.html";
+            } else {
+        // If the user chooses "Cancel," redirect to the sign-up page
+                window.location.href = "signup.html";
+            }
+        }
+
+       // Add event listeners to product cards
+        document.getElementById('summer-dress').addEventListener('click', function() {
+            promptSignInOrSignUp('Summer Dress');
+        });
+
+        document.getElementById('casual-tshirt').addEventListener('click', function() {
+            promptSignInOrSignUp('Casual T-Shirts');
+        });
+
+        document.getElementById('denim-jackets').addEventListener('click', function() {
+            promptSignInOrSignUp('Denim Jackets');
+        });
+
+        // Function to handle Sign Out
+        function signOut() {
+    // Optional: Add logic for session clearance or user logout
+            alert("You have been signed out.");
+            window.location.href = "signin.html"; // Redirecting to the sign-in page
+        }
+
+
+    </script>
+</body>
+</html>

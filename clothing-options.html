@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothing Options with Cart</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #667eea;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+        nav {
+    background-color: #333;
+    padding: 10px 0; 
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px; 
+    font-size: 16px;
+    display: inline-block; 
+}
+
+nav a:hover {
+    color: #ffcc00; 
+}
+
+
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .product-card {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+        }
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .product-card h4 {
+            font-size: 1.2rem;
+            margin: 15px 0 10px;
+            color: #333;
+        }
+        .product-card p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .add-to-cart {
+            background-color: #667eea;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .add-to-cart:hover {
+            background-color: #5c6bc0;
+        }
+        .cart {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .cart h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        .cart-items {
+            list-style: none;
+            padding: 0;
+        }
+        .cart-items li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+            margin-top: 40px;
+        }
+
+        #scrollTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+            background-color: #667eea;
+            color: #ffffff;
+            border: none;
+            padding: 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        #scrollTopBtn:hover {
+            background-color: #764ba2;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Choose Your Favorite Clothing</h1>
+    </header>
+    <!-- Navigation Bar -->
+<nav>
+    <a href="#summer-dresses">Summer Dresses</a>
+    <a href="#denim-jackets">Denim Jackets</a>
+    <a href="#casual-t-shirts">Casual T-Shirts</a>
+</nav>
+
+    
+    <main>
+        <!-- Summer Dresses Category -->
+        <section id="summer-dresses">
+        <h2>Summer Dresses</h2>
+        <div class="product-grid">
+            <div class="product-card" data-product="Elegant Summer Dress - $55.99">
+                <img src="https://images.pexels.com/photos/428338/pexels-photo-428338.jpeg" alt="Elegant Summer Dress">
+                <h4>Elegant Summer Dress</h4>
+                <p>$55.99</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-card" data-product="Chic Floral Dress - $48.99">
+                <img src="https://images.pexels.com/photos/935985/pexels-photo-935985.jpeg" alt="Chic Floral Dress">
+                <h4>Chic Floral Dress</h4>
+                <p>$48.99</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-card" data-product="Bright Summer Dress - $39.99">
+                <img src="https://media.istockphoto.com/id/1397185406/photo/portrait-of-woman-smiling-against-wall-with-palm-tree-shade.jpg?s=1024x1024&w=is&k=20&c=J0wIcGVVMRR1RzaXJ3VQzEFisu6PI5xmNjPoRPy_6yE=" alt="Bright Summer Dress">
+                <h4>Bright Summer Dress</h4>
+                <p>$39.99</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-card" data-product="Floral Print Dress - $42.99">
+                <img src="https://media.istockphoto.com/id/960208858/photo/beautiful-happy-african-american-young-female-model-wear-dress-in-flowers.jpg?s=1024x1024&w=is&k=20&c=CDhNj-582p1Hkq-djij3GZ9TnwatDNnEgae1yHVG28U=" alt="Floral Print Dress">
+                <h4>Floral Print Dress</h4>
+                <p>$42.99</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-card" data-product="Casual Beach Dress - $38.99">
+                <img src="https://media.istockphoto.com/id/1255493335/photo/womans-legs-splashing-water-on-the-beach.jpg?s=1024x1024&w=is&k=20&c=Raq0IMECFV1hz2OHl6IABn1ER5ijX2jDOg7LW2sAZxY=" alt="Casual Beach Dress">
+                <h4>Casual Beach Dress</h4>
+                <p>$38.99</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-card" data-product="Floral Maxi Dress - $50.99">
+                <img src="https://media.istockphoto.com/id/1311079536/photo/beautiful-young-latino-woman-posing-in-fashionable-maxi-dress-and-summer-hat-taking-photos.jpg?s=1024x1024&w=is&k=20&c=Cn_SFbbRV8EGrdm8yVThrzBPDH0xPmrEwfZ84V1c7ps=" alt="Floral Maxi Dress">
+                <h4>Floral Maxi Dress</h4>
+                <p>$50.99</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-card" data-product="Polka Dot Dress - $29.99">
+                <img src="https://media.istockphoto.com/id/1661117325/photo/portrait-of-mid-adult-woman-outdoors-in-street.jpg?s=1024x1024&w=is&k=20&c=PJ9kE4bCu1G6gd-bodyAhpIV6yoJ_DIdVsfJIR1mJxk=" alt="Polka Dot Dress">
+                <h4>Polka Dot Dress</h4>
+                <p>$29.99</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-card" data-product="Summer Sleeveless Dress - $34.99">
+                <img src="https://media.istockphoto.com/id/1717245451/photo/two-beautiful-multiracial-young-women-take-selfies-in-the-park.jpg?s=1024x1024&w=is&k=20&c=TDdNJUrfNbQQMNpyb6sdJzWzEDlv282lLsUw5AXKmE8=" alt="Summer Sleeveless Dress">
+                <h4>Summer Sleeveless Dress</h4>
+                <p>$34.99</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-card" data-product="Boho Summer Dress - $41.99">
+                <img src="https://media.istockphoto.com/id/2156950016/photo/woman-in-white-dress-holding-hat-in-serene-countryside-landscape.jpg?s=1024x1024&w=is&k=20&c=zz5MPLVGzjK9rdZdscJk1AouHFPlpvG1Yq2R9iVuBnA=" alt="Boho Summer Dress">
+                <h4>Boho Summer Dress</h4>
+                <p>$41.99</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-card" data-product="Tropical Print Dress - $48.99">
+                <img src="https://media.istockphoto.com/id/1436082863/photo/black-woman-on-throne-chair-queen-empowerment-in-portrait-and-trendy-african-designer-fashion.jpg?s=1024x1024&w=is&k=20&c=N0QHsGY7wX751f6I0js1rXY3WwtYxm44Ec3rn-3TeY0=" alt="Tropical Print Dress">
+                <h4>Tropical Print Dress</h4>
+                <p>$48.99</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+        </section>
+
+        <!-- Denim Jackets Category -->
+        <section id="denim-jackets">
+        <h2>Denim Jackets</h2>
+<div class="product-grid">
+    <div class="product-card" data-product="Classic Blue Denim Jacket - $64.99">
+        <img src="https://images.unsplash.com/photo-1614693348454-1e0710d21c60?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Classic Blue Denim Jacket">
+        <h4>Classic Blue Denim Jacket</h4>
+        <p>$64.99</p>
+        <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="product-card" data-product="Ripped Denim Jacket - $72.99">
+        <img src="https://images.unsplash.com/photo-1518550379382-3b220e4adea5?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ripped Denim Jacket">
+        <h4>Ripped Denim Jacket</h4>
+        <p>$72.99</p>
+        <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="product-card" data-product="Light Wash Denim Jacket - $59.99">
+        <img src="https://media.istockphoto.com/id/2167594393/photo/denim-jacket-isolated-denim-clothes.jpg?s=1024x1024&w=is&k=20&c=7j_j3b7AzWXjqHZqqtrP7GigoTRGNIhNKpGUp-gXPRQ=" alt="Light Wash Denim Jacket">
+        <h4>Light Wash Denim Jacket</h4>
+        <p>$59.99</p>
+        <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="product-card" data-product="Oversized Denim Jacket - $77.99">
+        <img src="https://media.istockphoto.com/id/1220783501/photo/portrait-of-pretty-female-high-school-student.jpg?s=1024x1024&w=is&k=20&c=SxVh__3jbQ0vob1QDZA9O3KpyuE143Ht3Pk812L1RI8=" alt="Oversized Denim Jacket">
+        <h4>Oversized Denim Jacket</h4>
+        <p>$77.99</p>
+        <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="product-card" data-product="Distressed Denim Jacket - $69.99">
+        <img src="https://plus.unsplash.com/premium_photo-1674719144570-0728faf14f96?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Distressed Denim Jacket">
+        <h4>Distressed Denim Jacket</h4>
+        <p>$69.99</p>
+        <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="product-card" data-product="Black Denim Jacket - $66.99">
+        <img src="https://media.istockphoto.com/id/618732266/photo/denim-jackets-and-pants.jpg?s=1024x1024&w=is&k=20&c=mBHtgF316J__2weTN_Xb7E3boTRo4KwUPm5LVj5oA24=" alt="Black Denim Jacket">
+        <h4>Black Denim Jacket</h4>
+        <p>$66.99</p>
+        <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="product-card" data-product="Vintage Denim Jacket - $74.99">
+        <img src="https://media.istockphoto.com/id/154931559/photo/goofy-hippy-professor-with-cassette-tape-player.jpg?s=1024x1024&w=is&k=20&c=7PoOz6FeWzKmCwd_nCcmqv_pd2iSpiwiOkjJYyLJZUs=" alt="Vintage Denim Jacket">
+        <h4>Vintage Denim Jacket</h4>
+        <p>$74.99</p>
+        <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="product-card" data-product="Cropped Denim Jacket - $62.99">
+        <img src="https://media.istockphoto.com/id/1146517217/photo/image-of-indian-hindu-man-drinking-orange-juice-vitamin-c-from-glass-at-breakfast-brunch.jpg?s=1024x1024&w=is&k=20&c=wf60CF10eMSvrz9JiQ01Zg7wbLS6C74q_QdT_evdbDY=" alt="Cropped Denim Jacket">
+        <h4>Cropped Denim Jacket</h4>
+        <p>$62.99</p>
+        <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="product-card" data-product="Double-Breasted Denim Jacket - $79.99">
+        <img src="https://media.istockphoto.com/id/467337313/photo/waist-up-shot-of-the-teenage-girl-in-jeans.jpg?s=1024x1024&w=is&k=20&c=jpDlmdi2x0rYU5jb7TZfqqt8Hc9Z-YXZNv-vEyAsOBA=" alt="Double-Breasted Denim Jacket">
+        <h4>Double-Breasted Denim Jacket</h4>
+        <p>$79.99</p>
+        <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="product-card" data-product="Biker Denim Jacket - $84.99">
+        <img src="https://media.istockphoto.com/id/1151013053/photo/portrait-of-a-brutal-bearded-male-dressed-in-a-jeans-jacket-sitting-on-steps-near-his-custom.jpg?s=1024x1024&w=is&k=20&c=HGnjUf3a-VALLH7vAnYxiidE22ulULSkABZGZLRponM=" alt="Biker Denim Jacket">
+        <h4>Biker Denim Jacket</h4>
+        <p>$84.99</p>
+        <button class="add-to-cart">Add to Cart</button>
+    </div>
+</div>
+</section>
+
+        <!-- Casual T-Shirts Category -->
+        <section id="casual-t-shirts">
+        <h2>Casual T-Shirts</h2>
+<div class="product-grid">
+    <div class="product-card" data-product="Stylish Graphic Tee - $21.99">
+        <img src="https://images.unsplash.com/photo-1528905895600-30137e04d936?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Stylish Graphic Tee">
+        <h4>Stylish Graphic Tee</h4>
+        <p>$21.99</p>
+        <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="product-card" data-product="Minimalist T-Shirt - $17.99">
+        <img src="https://images.pexels.com/photos/428340/pexels-photo-428340.jpeg" alt="Minimalist T-Shirt">
+        <h4>Minimalist T-Shirt</h4>
+        <p>$17.99</p>
+        <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="product-card" data-product="Vintage Logo T-Shirt - $19.99">
+        <img src="https://media.istockphoto.com/id/470725592/photo/a-plain-white-tshirt-on-a-grey-background.jpg?s=1024x1024&w=is&k=20&c=vpGx6SUmmLhv4OiDU_CzDb2TxYXc5pusNKnd1rWLpB0=" alt="Vintage Logo T-Shirt">
+        <h4>Vintage Logo T-Shirt</h4>
+        <p>$19.99</p>
+        <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="product-card" data-product="Funny Quote T-Shirt - $14.99">
+        <img src="https://plus.unsplash.com/premium_photo-1698514483424-85010f988b72?q=80&w=1852&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Funny Quote T-Shirt">
+        <h4>Funny Quote T-Shirt</h4>
+        <p>$14.99</p>
+        <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="product-card" data-product="Tie-Dye T-Shirt - $22.99">
+        <img src="https://media.istockphoto.com/id/175443076/photo/tie-dye-t-shirt.jpg?s=1024x1024&w=is&k=20&c=QsI3HPnp2qKPVgIoxbv7VViOsSkOae8GWkRis-FJbMs=" alt="Tie-Dye T-Shirt">
+        <h4>Tie-Dye T-Shirt</h4>
+        <p>$22.99</p>
+        <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="product-card" data-product="Basic White Tee - $12.99">
+        <img src="https://media.istockphoto.com/id/1048695348/photo/cheerful-young-man-pointing-at-himself.jpg?s=1024x1024&w=is&k=20&c=4oB2WJtJYsTBE8vXZTHmz6ZDfdDIRWkNctjmMVsbJoI=" alt="Basic White Tee">
+        <h4>Basic White Tee</h4>
+        <p>$12.99</p>
+        <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="product-card" data-product="Floral Print T-Shirt - $24.99">
+        <img src="https://images.pexels.com/photos/3183147/pexels-photo-3183147.jpeg" alt="Floral Print T-Shirt">
+        <h4>Floral Print T-Shirt</h4>
+        <p>$24.99</p>
+        <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="product-card" data-product="Color Block T-Shirt - $18.99">
+        <img src="https://media.istockphoto.com/id/1288275463/photo/happy-man-in-santa-hat-over-white-background.jpg?s=1024x1024&w=is&k=20&c=cvYngJ1bSGTpAfREIy5WWrgjsaXvFlFnyYMzghULwoM=" alt="Color Block T-Shirt">
+        <h4>Color Block T-Shirt</h4>
+        <p>$18.99</p>
+        <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="product-card" data-product="Solid Black Tee - $16.99">
+        <img src="https://media.istockphoto.com/id/1265217303/photo/strong-man-with-crossed-arms.jpg?s=1024x1024&w=is&k=20&c=6oHKOVEAjfcf8Y40pRYf6S5PAJsZVNvOqPwcT5CbAIQ=" alt="Solid Black Tee">
+        <h4>Solid Black Tee</h4>
+        <p>$16.99</p>
+        <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="product-card" data-product="Striped T-Shirt - $20.99">
+        <img src="https://plus.unsplash.com/premium_photo-1705508643276-955d3750a125?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Striped T-Shirt">
+        <h4>Striped T-Shirt</h4>
+        <p>$20.99</p>
+        <button class="add-to-cart">Add to Cart</button>
+    </div>
+</div>
+</section>
+
+
+        <!-- Cart Section -->
+        <div class="cart">
+            <h2>Your Cart</h2>
+            <ul class="cart-items" id="cartItems"></ul>
+            <p id="cartTotal"></p>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 FashionLine Clothing. All Rights Reserved.</p>
+    </footer>
+    <!-- Scroll-to-Top Button -->
+    <button id="scrollTopBtn" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i></button>
+    <script>
+        let cart = [];
+
+        // Add product to cart
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                const productInfo = this.closest('.product-card').getAttribute('data-product');
+                addToCart(productInfo);
+            });
+        });
+
+        function addToCart(product) {
+            cart.push(product);
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartItemsList = document.getElementById('cartItems');
+            cartItemsList.innerHTML = '';
+
+            cart.forEach(item => {
+                const listItem = document.createElement('li');
+                listItem.textContent = item;
+                cartItemsList.appendChild(listItem);
+            });
+
+            const total = cart.length;
+            const cartTotal = document.getElementById('cartTotal');
+            cartTotal.textContent = `Total Items: ${total}`;
+        }
+
+       
+
+
+         // Scroll-to-Top Button Visibility
+         window.onscroll = function() {
+            var scrollTopBtn = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                scrollTopBtn.style.display = "block";
+            } else {
+                scrollTopBtn.style.display = "none";
+            }
+        };
+
+        // Scroll-to-Top Function
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+    </script>
+</body>
+</html>

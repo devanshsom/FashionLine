@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - FashionLine Clothing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
+    <script type="module" src="register.js" defer></script>
+    <script type="module" src="loginwithGoogle.js" defer></script>
+    <script type="module" src="loginwithGithub.js" defer></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-image: url('https://images.pexels.com/photos/1020370/pexels-photo-1020370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') !important;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-size: cover;
+            background-position: center;
+        }
+        .signup-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+        .signup-container h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+        .signup-container .input-fields {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .signup-container .social-buttons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+        }
+        .signup-container .social-buttons button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .signup-container .social-buttons .google-button {
+            background-color: #4285F4;
+            color: #fff;
+        }
+        .signup-container .social-buttons .google-button:hover {
+            background-color: #3367D6;
+        }
+        .signup-container .social-buttons .github-button {
+            background-color: #090909;
+            color: #fff;
+        }
+        .signup-container .social-buttons .github-button:hover {
+            background-color: #1566CA;
+        }
+        .signup-container .social-buttons .instagram-button {
+            background-color: #E1306C;
+            color: #fff;
+        }
+        .signup-container .social-buttons .instagram-button:hover {
+            background-color: #C13584;
+        }
+        .signup-container input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .signup-container button.sign-up {
+            padding: 10px;
+            border: none;
+            background-color: #667eea;
+            color: white;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 15px;
+        }
+        .signup-container button.sign-up:hover {
+            background-color: #764ba2;
+        }
+        .signup-container a {
+            color: #667eea;
+            text-decoration: none;
+            margin-top: 10px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <h2>Create an Account</h2>
+        <div class="input-fields">
+            <input type="email" placeholder="Email Address" id="email" required>
+            <input type="password" placeholder="Password" id="pass" required>
+        </div>
+        <span style="color: blue;">Or</span>
+        <div class="social-buttons">
+            <button class="google-button" type="submit" id="google">
+                <i class="ri-google-fill"></i>
+                Login with Google
+            </button>
+            <button class="github-button" type="submit" id="github">
+                <i class="ri-github-fill"></i>
+                login with Github
+            </button>
+        </div>
+        <div>Already have an account? <a href="signin.html">Sign In</a></div>
+        <button class="sign-up" type="submit" id="submit">Sign Up</button>
+        <a href="index.html">Back to Home</a>
+    </div>
+</body>
+</html>
